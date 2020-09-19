@@ -1,0 +1,10 @@
+<article class="news-article">
+  <h2 class="news-article__title">{{ title }}</h2>
+  <p class="news-article__article">{{ article }}</p>
+  <p class="news-article__data">{{ date }}</p>
+  <ul class="news-article__comments-list">
+      {{#each comments}}
+    <li class="news-article__comments-item">{{ this.comment }}</li>
+    {{/each}}
+  </ul>
+</article>
