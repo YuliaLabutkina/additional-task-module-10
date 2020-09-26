@@ -17,11 +17,10 @@ const userNameRef = document.querySelector('input.name');
 const userSurnameRef = document.querySelector('input.surname');
 const newsListRef = document.querySelector('select.oll-news');
 const newsRef = document.querySelector('div.news');
+const userNameSurnameRef = document.querySelector('div.user-name');
 
 const createUserName = (userName) => {
-  const element = document.createElement('div');
-  element.textContent = `${userName}`;
-  formRef.after(element);
+  userNameSurnameRef.innerHTML = `<div>${userName}</div>`;
 }
 
 const clearValue = () => {
