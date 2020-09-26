@@ -38,11 +38,22 @@ const submitForm = (event) => {
   clearValue();
 }
 
-const newsCategory = (obj) => obj.map(el => el.category).filter((el, index, arr) => arr.indexOf(el) === index);
+const newsCategory = (obj) => {
+  return obj.reduce((acc, current) => {
+    // !acc.includes(current.category) && acc.push(current.category)
+
+    if(!acc.includes(current.category)) {
+      acc.push(current.category)
+    }
+
+    return acc;
+  }, [])
+}
+
 
 const createNewsCategoryList = () => {
   const articlesNews = newsCategory(articles);
-  newsListRef.innerHTML = articlesNews.reduce((acc, current, index) => acc + `<option value = "${(current)}">${current}</option>`, '<option value = ""></option>');
+  newsListRef.innerHTML = articlesNews.reduce((acc, current) => acc + `<option value = "${(current)}">${current}</option>`, '<option value = ""></option>');
 }
 createNewsCategoryList();
 
